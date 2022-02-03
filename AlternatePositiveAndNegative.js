@@ -29,11 +29,6 @@ function arrange(array) {
         array2.push(array[i]);
       } else {
         j = i + 1;
-        while (j < array.length) {
-          if (array[j] < 0) {
-            array2.push(array[i]);
-          }
-        }
       }
     }
     i++;
