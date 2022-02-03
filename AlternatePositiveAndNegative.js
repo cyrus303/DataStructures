@@ -19,23 +19,34 @@ output: arr[] = {-5, 5, -2, 2, -8, 4, 7, 1, 8, 0}
 
 */
 
-function arrange(array) {
-  var array2 = [];
-  i = 0;
-  while (i < array.length) {
-    console.log(i);
-    if (i % 2 === 0) {
-      if (array[i] > 0) {
-        array2.push(array[i]);
-      } else {
-        j = i + 1;
-      }
-    }
-    i++;
+function rearrange(arr, n) {
+  let i = 0,
+    j = n - 1;
+
+  // Shift all negative values to the end
+  while (i < j) {
+    while (i <= n - 1 && arr[i] > 0) i += 1;
+    while (j >= 0 && arr[j] < 0) j -= 1;
+
+    if (i < j) swap(arr, i, j);
   }
-  return array2;
+
+  if (i == 0 || i == n) return;
+
+  let k = 0;
+  while (k < n && i < n) {
+    swap(arr, k, i);
+    i = i + 1;
+    k = k + 2;
+  }
 }
 
-arr = [1, 2, -3, -4, -1, 4];
-arrangedArray = arrange(arr);
-console.log(arrangedArray);
+function swap(arr, index1, index2) {
+  let c = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = c;
+}
+
+arr = [1, 5, 7, -1, 5];
+count = rearrange(arr, 5);
+console.log(count);
