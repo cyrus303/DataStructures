@@ -68,8 +68,8 @@ function nextPerm(number, n) {
   return nextPermutation;
 }
 
-// let input = [1, 2, 3, 6, 5, 4];
-input = [3, 2, 1];
+let input = [10, 20, 30, 60, 50, 40];
+// input = [3, 2, 1];
 let n = input.length;
 output = nextPerm(input, n);
 console.log(output);
